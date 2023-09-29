@@ -44,10 +44,10 @@ namespace Bookular.DAL
 
             for (int i = 1; i <= authors.Count; i++)
             {
-                if (books[i-1].AuthorId == i)
+                if (books[i - 1].AuthorId == i)
                 {
-                    books[i-1].AuthorName = $"{authors[i-1].FirstName} {authors[i-1].LastName}";
-                }    
+                    books[i - 1].AuthorName = $"{authors[i - 1].FirstName} {authors[i - 1].LastName}";
+                }
             }
 
             modelBuilder.Entity<Book>().HasData(books);
