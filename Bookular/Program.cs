@@ -1,10 +1,28 @@
+
+
+using Bookular.DAL;
+using Bookular.DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
+
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Add services to the container.
-
 builder.Services.AddControllersWithViews();
 
+// Add swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<BookContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddTransient<IBookRepository, BookRepository>();
+
 var app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
