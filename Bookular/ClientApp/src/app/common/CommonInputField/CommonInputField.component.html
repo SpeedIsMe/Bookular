@@ -1,0 +1,6 @@
+<div class="search-container">
+    <label *ngIf="label" for={{label}}>{{label}}</label>
+    <input type="text" id={{label}} name={{label}} [formControl]="test" 
+    (ngModelChange)="updateInput()" (keydown.enter)="onEnter ? onEnter() : null"/>
+    <p>{{test.value}}</p>
+</div>
