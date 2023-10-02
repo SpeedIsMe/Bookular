@@ -5,21 +5,21 @@ namespace Bookular.DAL.Repositories
 {
     public class BookRepository : IBookRepository
     {
-        private readonly BookContext Context;
+        private readonly BookContext _context;
 
-        public BookRepository(BookContext Context)
+        public BookRepository(BookContext context)
         {
-            this.Context = Context;
+            _context = context;
         }
 
-        public IEnumerable<Book> All()
+        public IEnumerable<Book> GetAll()
         {
-            return Context.Authors.Include(a => a.Books).SelectMany(x => x.Books);
+            return _context.Books.Include(a => a.Author);
         }
 
-        public IEnumerable<Book> Find(string? title)
+        public IEnumerable<Book> Find(string title)
         {
-            return Context.Authors.Include(a => a.Books).SelectMany(x => x.Books).Where(b => b.Title.Contains(title));
+            return _context.Books.Include(a => a.Author).Where(a => a.Title.Contains(title));
         }
     }
 }

@@ -3,15 +3,15 @@
 using Bookular.DAL;
 using Bookular.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 // Add swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

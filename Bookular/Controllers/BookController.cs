@@ -8,25 +8,23 @@ namespace Bookular.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private readonly IBookRepository bookRepository;
+        private readonly IBookRepository _bookRepository;
 
         public BookController(IBookRepository bookRepository)
         {
-            this.bookRepository = bookRepository;
+            _bookRepository = bookRepository;
+        }
+
+        [HttpGet("GetAll")]
+        public ActionResult<List<Book>> GetAll()
+        {
+            return Ok(_bookRepository.GetAll());
         }
 
         [HttpGet("Find/{title}")]
-        [HttpGet("Find/")]
-        public ActionResult<List<Book>> Find(string? title)
+        public ActionResult<List<Book>> Find(string title)
         {
-            if (title == null)
-            {
-                return Ok(bookRepository.All());
-            }
-            else
-            {
-                return Ok(bookRepository.Find(title));
-            }
+            return Ok(_bookRepository.Find(title));
         }
     }
 }
