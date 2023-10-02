@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "Bookular"
+  "defaultProject": "Bookular",
+  "cli": {
+    "analytics": false
+  }
 }
