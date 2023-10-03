@@ -18,11 +18,22 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddTransient<IBookRepository, BookRepository>();
+//add cors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

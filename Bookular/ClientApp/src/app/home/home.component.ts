@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IBook } from './IBook';
 import { IAuthor } from './IAuthor';
 import { FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { BookularService } from 'src/services/bookular.service';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +12,11 @@ import { FormControl } from '@angular/forms';
 export class HomeComponent {
   title = 'Bookular';
   subtitle = 'Your guide to book';
-  bookData: IBook[] | undefined = undefined;
+  bookservice = new BookularService(this.http);
   userInput: string | undefined = undefined;
+  bookData = this.bookservice.books$;
+
+  constructor(private http: HttpClient) {}
 
   updateInput = (input: string) => {
     this.userInput = input;
@@ -19,33 +24,6 @@ export class HomeComponent {
   };
 
   searchBooks = () => {
-    this.bookData = this.books.filter((book) =>
-      book.title.toLowerCase().includes(this.userInput!.toLowerCase())
-    );
-    console.log(this.bookData);
+    this.bookservice.getBooks(this.userInput!);
   };
-
-  books: IBook[] = [
-    {
-      id: 1,
-      title: 'War and Peace',
-      author: 'Leo Tolstoy',
-      description:
-        'The epic tale of love and loss set during the war between Russia and France.',
-    },
-    {
-      id: 2,
-      title: 'The Catcher in the Rye',
-      author: 'J.D. Salinger',
-      description:
-        "Holden Caulfield's journey through New York City and the loss of his innocence.",
-    },
-    {
-      id: 3,
-      title: 'The Great Gatsby',
-      author: 'F. Scott Fitzgerald',
-      description:
-        'The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.',
-    },
-  ];
 }
