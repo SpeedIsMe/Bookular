@@ -12,14 +12,42 @@ namespace Bookular.DAL.Repositories
             _context = context;
         }
 
-        public IEnumerable<Book> GetAll()
+        public async Task<IEnumerable<Book>> GetBooks()
         {
-            return _context.Books.Include(a => a.Author);
+            return await _context.Books.Select(b => b).ToListAsync();
         }
 
-        public IEnumerable<Book> Find(string title)
+        public async Task<IEnumerable<Book>> GetBook(string title)
         {
-            return _context.Books.Include(a => a.Author).Where(a => a.Title.Contains(title));
+            var books = await _context.Books.Where(b => b.Title.Contains(title)).ToListAsync();
+            return books == null ? null : books;
+        }
+
+        public async Task<Book> PutBook(long id, Book book)
+        {
+            _context.Entry(book).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return book;
+        }
+
+        public async Task<Book> PostBook(Book book)
+        {
+            _context.Books.Add(book);
+            _context.SaveChanges();
+
+            return book;
+        }
+
+        public async Task<Book> DeleteBook(long id)
+        {
+            var book = await _context.Books.FindAsync(id);
+            if (book != null)
+            {
+                _context.Books.Remove(book);
+                await _context.SaveChangesAsync();
+            }
+            return book;
         }
     }
 }
