@@ -1,0 +1,8 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:44411",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "C:\\Users\\jnooij\\source\\repos\\Bookular\\Bookular\\ClientApp\\",
+"MaxTimeoutInSeconds": "120"
+}
+}
