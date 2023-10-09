@@ -72,42 +72,49 @@ public class BookContext : DbContext
             new()
             {
                 Id = 55, Title = "War and Peace", AuthorId = 1,
-                Description = "The epic tale of love and loss set during the war between Russia and France."
+                Description = "The epic tale of love and loss set during the war between Russia and France.",
+                Isbn = 9781435169876
             },
             new()
             {
                 Id = 66, Title = "The Catcher in the Rye", AuthorId = 2,
-                Description = "Holden Caulfield's journey through New York City and the loss of his innocence."
+                Description = "Holden Caulfield's journey through New York City and the loss of his innocence.",
+                Isbn = 9780316769488
             },
             new()
             {
                 Id = 5757, Title = "Design patterns", AuthorId = 3,
                 Description =
-                    "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan."
+                    "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+                Isbn = 9780201633610
             },
             new()
             {
                 Id = 322343, Title = "C# 11 and .NET 7 – Modern Cross-Platform", AuthorId = 4,
                 Description =
-                    "An accessible guide for beginner-to-intermediate programmers to concepts, real-world applications, and latest features of C# 11 and .NET 7."
+                    "An accessible guide for beginner-to-intermediate programmers to concepts, real-world applications, and latest features of C# 11 and .NET 7.",
+                Isbn = 9781484264143
             },
             new()
             {
                 Id = 65433, Title = "C# 10 in a Nutshell", AuthorId = 4,
                 Description =
-                    "When you have questions about how to use C# 10, this highly acclaimed bestseller has precisely the answers you need. Uniquely organized around concepts and use cases, this updated sixth edition includes completely revised and updated information on all the new C# 10 language features."
+                    "When you have questions about how to use C# 10, this highly acclaimed bestseller has precisely the answers you need. Uniquely organized around concepts and use cases, this updated sixth edition includes completely revised and updated information on all the new C# 10 language features.",
+                Isbn = 9781492081138
             },
             new()
             {
                 Id = 1, Title = "The Spy Coast: A Thriller", AuthorId = 5,
                 Description =
-                    "A retired CIA operative in small-town Maine tackles the ghosts of her past in this fresh take on the spy thriller from New York Times bestselling author Tess Gerritsen."
+                    "A retired CIA operative in small-town Maine tackles the ghosts of her past in this fresh take on the spy thriller from New York Times bestselling author Tess Gerritsen.",
+                Isbn = 9781984824992
             },
             new()
             {
                 Id = 2, Title = "Cruel Paradise", AuthorId = 6,
                 Description =
-                    "Jane Doe lives in the shadows under an assumed name. A once-promising anthropologist and an expert on shamanism, everyone thinks she’s dead. Or so she hopes."
+                    "Jane Doe lives in the shadows under an assumed name. A once-promising anthropologist and an expert on shamanism, everyone thinks she’s dead. Or so she hopes.",
+                Isbn = 9780593197469
             }
         };
 

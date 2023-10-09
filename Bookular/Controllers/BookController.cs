@@ -27,6 +27,12 @@ namespace Bookular.Controllers
             return Ok(await _bookRepository.GetBook(title));
         }
 
+        [HttpGet("GetBookByIsbn/{isbn}")]
+        public async Task<ActionResult<List<Book>>> GetBookByIsbn(long isbn)
+        {
+            return Ok(await _bookRepository.GetBookByIsbn(isbn));
+        }
+
         [HttpPut("PutBook/{id}")]
         public async Task<ActionResult<List<Book>>> PutBook(long id, Book book)
         {

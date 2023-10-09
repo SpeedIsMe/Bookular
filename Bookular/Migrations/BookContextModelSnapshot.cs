@@ -106,6 +106,9 @@ namespace Bookular.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long>("Isbn")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -122,6 +125,7 @@ namespace Bookular.Migrations
                             Id = 55L,
                             AuthorId = 1L,
                             Description = "The epic tale of love and loss set during the war between Russia and France.",
+                            Isbn = 9781435169876L,
                             Title = "War and Peace"
                         },
                         new
@@ -129,6 +133,7 @@ namespace Bookular.Migrations
                             Id = 66L,
                             AuthorId = 2L,
                             Description = "Holden Caulfield's journey through New York City and the loss of his innocence.",
+                            Isbn = 9780316769488L,
                             Title = "The Catcher in the Rye"
                         },
                         new
@@ -136,6 +141,7 @@ namespace Bookular.Migrations
                             Id = 5757L,
                             AuthorId = 3L,
                             Description = "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+                            Isbn = 9780201633610L,
                             Title = "Design patterns"
                         },
                         new
@@ -143,6 +149,7 @@ namespace Bookular.Migrations
                             Id = 322343L,
                             AuthorId = 4L,
                             Description = "An accessible guide for beginner-to-intermediate programmers to concepts, real-world applications, and latest features of C# 11 and .NET 7.",
+                            Isbn = 9781484264143L,
                             Title = "C# 11 and .NET 7 – Modern Cross-Platform"
                         },
                         new
@@ -150,6 +157,7 @@ namespace Bookular.Migrations
                             Id = 65433L,
                             AuthorId = 4L,
                             Description = "When you have questions about how to use C# 10, this highly acclaimed bestseller has precisely the answers you need. Uniquely organized around concepts and use cases, this updated sixth edition includes completely revised and updated information on all the new C# 10 language features.",
+                            Isbn = 9781492081138L,
                             Title = "C# 10 in a Nutshell"
                         },
                         new
@@ -157,6 +165,7 @@ namespace Bookular.Migrations
                             Id = 1L,
                             AuthorId = 5L,
                             Description = "A retired CIA operative in small-town Maine tackles the ghosts of her past in this fresh take on the spy thriller from New York Times bestselling author Tess Gerritsen.",
+                            Isbn = 9781984824992L,
                             Title = "The Spy Coast: A Thriller"
                         },
                         new
@@ -164,6 +173,7 @@ namespace Bookular.Migrations
                             Id = 2L,
                             AuthorId = 6L,
                             Description = "Jane Doe lives in the shadows under an assumed name. A once-promising anthropologist and an expert on shamanism, everyone thinks she’s dead. Or so she hopes.",
+                            Isbn = 9780593197469L,
                             Title = "Cruel Paradise"
                         });
                 });
