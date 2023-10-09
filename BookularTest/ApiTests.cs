@@ -38,7 +38,7 @@ namespace BookularTest
         }
 
         [Test]
-        public void GetAll_ReturnsAllBooks()
+        public void GetBooks_ReturnsAllBooks()
         {
             var result = _repository.GetBooks();
 
@@ -46,7 +46,7 @@ namespace BookularTest
         }
 
         [Test]
-        public void Find_ReturnsBooksMatchingTitle()
+        public void GetBook_ReturnsBooksMatchingTitle()
         {
             var result = _repository.GetBook("Super");
 
