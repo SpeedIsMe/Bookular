@@ -15,16 +15,39 @@ namespace Bookular.Controllers
             _bookRepository = bookRepository;
         }
 
-        [HttpGet("GetAll")]
-        public ActionResult<List<Book>> GetAll()
+        [HttpGet("GetBooks")]
+        public async Task<ActionResult<List<Book>>> GetBooks()
         {
-            return Ok(_bookRepository.GetAll());
+            return Ok(await _bookRepository.GetBooks());
         }
 
-        [HttpGet("Find/{title}")]
-        public ActionResult<List<Book>> Find(string title)
+        [HttpGet("GetBook/{title}")]
+        public async Task<ActionResult<List<Book>>> GetBook(string title)
         {
-            return Ok(_bookRepository.Find(title));
+            return Ok(await _bookRepository.GetBook(title));
+        }
+
+        [HttpPut("PutBook/{id}")]
+        public async Task<ActionResult<List<Book>>> PutBook(long id, Book book)
+        {
+            if (id != book.Id)
+            {
+                return BadRequest();
+            }
+
+            return Ok(await _bookRepository.PutBook(id, book));
+        }
+
+        [HttpPost("PostBook")]
+        public async Task<ActionResult<List<Book>>> PostBook(Book book)
+        {
+            return Ok(await _bookRepository.PostBook(book));
+        }
+
+        [HttpDelete("DeleteBook/{id}")]
+        public async Task<ActionResult<List<Book>>> DeleteBook(long id)
+        {
+            return Ok(await _bookRepository.DeleteBook(id));
         }
     }
 }

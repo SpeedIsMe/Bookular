@@ -74,6 +74,20 @@ namespace Bookular.Migrations
                             Bio = "Francis Scott Key Fitzgerald was an American novelist, essayist, screenwriter, and short-story writer.",
                             FirstName = "F. Scott",
                             LastName = "Fitzgerald"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            Bio = "Tess Gerritsen left a successful practice as an internist to raise her children and concentrate on her writing.",
+                            FirstName = "Tess",
+                            LastName = "Gerritsen"
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            Bio = "Nicole Fox is the New York Times bestselling author of numerous historical romances.",
+                            FirstName = "Nicole",
+                            LastName = "Fox"
                         });
                 });
 
@@ -128,36 +142,29 @@ namespace Bookular.Migrations
                         {
                             Id = 322343L,
                             AuthorId = 4L,
-                            Description = "Count Lev Nikolayevich Tolstoy, usually referred to in English as Leo Tolstoy, was a Russian writer who is regarded as one of the greatest authors of all time.",
+                            Description = "An accessible guide for beginner-to-intermediate programmers to concepts, real-world applications, and latest features of C# 11 and .NET 7.",
                             Title = "C# 11 and .NET 7 – Modern Cross-Platform"
                         },
                         new
                         {
                             Id = 65433L,
                             AuthorId = 4L,
-                            Description = "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan",
+                            Description = "When you have questions about how to use C# 10, this highly acclaimed bestseller has precisely the answers you need. Uniquely organized around concepts and use cases, this updated sixth edition includes completely revised and updated information on all the new C# 10 language features.",
                             Title = "C# 10 in a Nutshell"
                         },
                         new
                         {
                             Id = 1L,
-                            AuthorId = 1L,
-                            Description = "Hamlet book",
-                            Title = "Hamlet"
+                            AuthorId = 5L,
+                            Description = "A retired CIA operative in small-town Maine tackles the ghosts of her past in this fresh take on the spy thriller from New York Times bestselling author Tess Gerritsen.",
+                            Title = "The Spy Coast: A Thriller"
                         },
                         new
                         {
                             Id = 2L,
-                            AuthorId = 1L,
-                            Description = "King lear book",
-                            Title = "King Lear"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            AuthorId = 1L,
-                            Description = "Othello book",
-                            Title = "Othello"
+                            AuthorId = 6L,
+                            Description = "Jane Doe lives in the shadows under an assumed name. A once-promising anthropologist and an expert on shamanism, everyone thinks she’s dead. Or so she hopes.",
+                            Title = "Cruel Paradise"
                         });
                 });
 

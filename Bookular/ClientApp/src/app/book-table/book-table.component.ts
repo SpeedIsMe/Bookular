@@ -19,17 +19,10 @@ export class BookTableComponent {
   }
 
   addBook(newBook: IBook) {
-    this.data.subscribe(books => {
-      books.push(newBook);
-    });
-
-    // TODO: WHEN BACKEND IS READY, UNCOMMENT
-    /*  const addedBook = this.bookservice.addBook(newBook).subscribe(addedBook => {
-        console.log(addedBook.title)
-  
-        this.data.subscribe(books => {
-          books.push(addedBook);
-        });
-      })*/
+    this.bookservice.addBook(newBook).subscribe(addedBook => {
+      this.data.subscribe(books => {
+        books.push(addedBook);
+      });
+    })
   }
 }

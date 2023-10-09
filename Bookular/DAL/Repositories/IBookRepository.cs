@@ -4,7 +4,10 @@ namespace Bookular.DAL.Repositories
 {
     public interface IBookRepository
     {
-        IEnumerable<Book> GetAll();
-        IEnumerable<Book> Find(string title);
+        Task<IEnumerable<Book>> GetBooks();
+        Task<IEnumerable<Book>> GetBook(string title);
+        Task<Book> PutBook(long id, Book book);
+        Task<Book> PostBook(Book book);
+        Task<Book> DeleteBook(long id);
     }
 }
