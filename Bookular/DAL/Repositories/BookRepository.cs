@@ -14,12 +14,12 @@ namespace Bookular.DAL.Repositories
 
         public async Task<IEnumerable<Book>> GetBooks()
         {
-            return await _context.Books.Select(b => b).ToListAsync();
+            return await _context.Books.Include(b => b.Author).Select(b => b).ToListAsync();
         }
 
         public async Task<IEnumerable<Book>> GetBook(string title)
         {
-            var books = await _context.Books.Where(b => b.Title.Contains(title)).ToListAsync();
+            var books = await _context.Books.Include(b => b.Author).Where(b => b.Title.Contains(title)).ToListAsync();
             return books == null ? null : books;
         }
 
