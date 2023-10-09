@@ -277,3 +277,5 @@ Bookular/ClientApp/.angular/cache/15.2.7/babel-webpack/ff9ccb12654bf6a1494378c9f
 .vs/Bookular/FileContentIndex/63f70f05-47cc-4b92-ae65-75faec167b03.vsidx
 .vs/Bookular/FileContentIndex/6cd6f1b3-8803-461b-88ab-20bea1610ef7.vsidx
 .vs/Bookular/v17/TestStore/0/000.testlog
+*.vsidx
+*.testlog
