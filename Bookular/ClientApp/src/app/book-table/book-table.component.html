@@ -1,18 +1,20 @@
 <table class="table" *ngIf="data">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let book of data | async">
-        <th scope="row">{{ book.id }}</th>
-        <td>{{ book.title }}</td>
-        <td>{{ book.author.firstName + " " + book.author.lastName }}</td>
-        <td>{{ book.description }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of data | async">
+      <th scope="row">{{ book.id }}</th>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author.firstName + " " + book.author.lastName }}</td>
+      <td>{{ book.description }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<app-create-book (onSubmit)="addBook($event)"></app-create-book>

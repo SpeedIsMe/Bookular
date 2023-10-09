@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CommonInputFieldComponent } from './common/CommonInputField/CommonInputField.component';
 import { BookTableComponent } from './book-table/book-table.component';
+import { CreateBookComponent } from './create-book/create-book.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BookTableComponent } from './book-table/book-table.component';
     FetchDataComponent,
     CommonInputFieldComponent,
     BookTableComponent,
+    CreateBookComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

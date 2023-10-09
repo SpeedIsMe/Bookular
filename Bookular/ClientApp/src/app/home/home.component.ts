@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { IBook } from './IBook';
-import { IAuthor } from './IAuthor';
-import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { BookularService } from 'src/services/bookular.service';
 
@@ -16,7 +13,7 @@ export class HomeComponent {
   userInput: string | undefined = undefined;
   bookData = this.bookservice.books$;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   updateInput = (input: string) => {
     this.userInput = input;
@@ -24,6 +21,6 @@ export class HomeComponent {
   };
 
   searchBooks = () => {
-    this.bookservice.getBooks(this.userInput!);
+    this.bookservice.loadBooks(this.userInput!);
   };
 }

@@ -1,0 +1,50 @@
+
+<div class="wrapper">
+  <h5>Add Book</h5>
+  <br />
+  <form [formGroup]="checkoutForm" (ngSubmit)="addBook()">
+
+    <div class="row">
+      <label class="column" for="title">
+        Title
+      </label>
+      <input class="column form-control" id="title" type="text" formControlName="title" required>
+    </div>
+
+    <div class="row">
+      <label class="column" for="description">
+        Description
+      </label>
+      <input class="column form-control" id="description" type="text" formControlName="description" required>
+    </div>
+
+    <div class="row">
+      <label class="column" for="authorFirstName">
+        Author First Name
+      </label>
+      <input class="column form-control" id="authorFirstName" type="text" formControlName="authorFirstName" required>
+    </div>
+
+    <div class="row">
+      <label class="column" for="authorLastName">
+        Author Last Name
+      </label>
+      <input class="column form-control" id="authorLastName" type="text" formControlName="authorLastName" required>
+    </div>
+
+    <div class="row">
+      <label class="column" for="authorBio">
+        Author Bio
+      </label>
+      <input class="column form-control" id="authorBio" type="text" formControlName="authorBio" required>
+    </div>
+
+    <br />
+    <button [disabled]="!checkoutForm.valid" class="button" type="submit">Add Book</button>
+
+  </form>
+</div>
+
+
+
+
