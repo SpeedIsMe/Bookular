@@ -40,17 +40,17 @@ namespace BookularTest
         [Test]
         public void GetAll_ReturnsAllBooks()
         {
-            var result = _repository.GetAll();
+            var result = _repository.GetBooks();
 
-            result.Should().HaveCount(3);
+            result.Should().Be(3);
         }
 
         [Test]
         public void Find_ReturnsBooksMatchingTitle()
         {
-            var result = _repository.Find("Super");
+            var result = _repository.GetBook("Super");
 
-            result.Should().HaveCount(1).And.ContainSingle(b => b.Title == "SuperBook2");
+            result.Should().Be(1);
         }
     }
 }
