@@ -33,6 +33,21 @@ namespace Bookular.Controllers
             return Ok(await _bookRepository.GetBookByIsbn(isbn));
         }
 
+        [HttpGet("ApplyDiscount/{isbn}/{discount}")]
+        public async Task<ActionResult<List<Book>>> ApplyDiscount(long isbn, int discount)
+        {
+            var book = await _bookRepository.GetBookByIsbn(isbn);
+            book.Price -= (book.Price * discount / 100);
+            return Ok(await _bookRepository.PutBook(book.Id, book));
+        }
+
+        [HttpGet("ApplyPercentageToAll/{percentage}")]
+        public async Task<ActionResult<List<Book>>> ApplyPercentageToAll(int percentage)
+        {
+            await _bookRepository.ApplyPriceChangeByPercentage(percentage);
+            return Ok();
+        }
+
         [HttpPut("PutBook/{id}")]
         public async Task<ActionResult<List<Book>>> PutBook(long id, Book book)
         {

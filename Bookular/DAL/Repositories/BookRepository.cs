@@ -1,4 +1,6 @@
-﻿using Bookular.Models;
+﻿using System.Diagnostics;
+using Bookular.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bookular.DAL.Repositories
@@ -14,19 +16,29 @@ namespace Bookular.DAL.Repositories
 
         public async Task<IEnumerable<Book>> GetBooks()
         {
-            return await _context.Books.Include(b => b.Author).ToListAsync();
+            return await _context.Books.Include(b => b.Author).AsNoTracking().ToListAsync();
         }
 
         public async Task<IEnumerable<Book>> GetBook(string title)
         {
-            var books = await _context.Books.Include(b => b.Author).Where(b => b.Title.Contains(title)).ToListAsync();
-            return books == null ? null : books;
+            var books = await _context.Books.Include(b => b.Author).Where(b => b.Title.Contains(title)).AsNoTracking().ToListAsync();
+            return books;
         }
 
-        public async Task<IEnumerable<Book>> GetBookByIsbn(long isbn)
+        public async Task<Book> GetBookByIsbn(long isbn)
         {
-            var books = await _context.Books.Include(b => b.Author).Where(b => b.Isbn == isbn).ToListAsync();
-            return books == null ? null : books;
+            var book = await _context.Books
+                .Include(b => b.Author)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(b => b.Isbn == isbn);
+            return book;
+        }
+
+        public async Task ApplyPriceChangeByPercentage(int percentage)
+        {
+            //var command = "UPDATE Books SET Price = Price + (Price * @p0 / 100)";
+            var parameter = new SqlParameter("@percentage", percentage);
+            await _context.Database.ExecuteSqlRawAsync("EXEC UpdateBookPricesByPercentage @percentage", parameter);
         }
 
         public async Task<Book> PutBook(long id, Book book)
